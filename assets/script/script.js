@@ -1,24 +1,9 @@
-
-// // Define each answer button on the page
-// const buttonA = document.querySelector("#buttonA");
-// const buttonB = document.querySelector("#buttonB");
-// const buttonC = document.querySelector("#buttonC");
-// const buttonD = document.querySelector("#buttonD");
-
-// buttonA.addEventListener("click", click);
-// buttonB.addEventListener("click", click);
-// buttonC.addEventListener("click", click);
-// buttonD.addEventListener("click", click);
-// function click() {
-//     console.log("CLICK!!!")
-// }
-
 // Define question and answer elements
 const questionElement = document.getElementById("question");
 const answersElement = document.getElementById("answers")
 
 // Define each question object in an array
-const qArray = [
+const questionArray = [
     {
         question: "What is your name?",
         answers: [
@@ -27,6 +12,34 @@ const qArray = [
             {text: "Michael", correct: true},
             {text: "Snake", correct: false},
         ]
+    },
+    {
+        question: "What is your favorite color?",
+        answers: [
+            {text: "Red", correct: false},
+            {text: "Green", correct: false},
+            {text: "Blue", correct: true},
+            {text: "Yellow", correct: false},
+        ]
     }
 ];
 
+// This function populates the page with values from
+// the currently selected question index.
+function showQuestion() {
+    // Set the current question to question index value
+    questionIndex = 0;
+    currentQuestion = questionArray[questionIndex];
+    // Push question object text to question element
+    questionElement.innerText = questionArray[questionIndex].question;
+    // For each answer, create a button
+    // and push answer text to it.
+    currentQuestion.answers.forEach(answers => {
+        button = document.createElement("button");
+        button.classList.add("button");
+        answersElement.appendChild(button);
+        button.innerHTML = answers.text;
+    })
+}
+
+showQuestion();
