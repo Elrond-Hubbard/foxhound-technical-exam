@@ -1,0 +1,23 @@
+* {
+    box-sizing: border-box;
+    margin: 0%;
+    padding: 0%;
+    background-color: antiquewhite;
+}
+
+
+body {
+    /* border:solid; */
+    font-family:system-ui;
+    margin: 5% 15%
+}
+
+header {
+    border:solid;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0px 1%;
+    font-size: 30px;
+}
+
