@@ -1,16 +1,31 @@
-// Define question and answer elements
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+///// QUIZ GAME /////
+
+
+// HTML element assignments
 const questionElement = document.getElementById("question");
 const answersElement = document.getElementById("answers")
 
-// Define each question object in an array
+
+// Each object contains a question and four answers with true/false property
 const questionArray = [
     {
         question: "What is your name?",
         answers: [
             {text: "Doug", correct: false},
             {text: "Jane", correct: false},
-            {text: "Michael", correct: true},
+            {text: "Sir Lancelot of Camelot", correct: true},
             {text: "Snake", correct: false},
+        ]
+    },
+    {
+        question: "What is your quest?",
+        answers: [
+            {text: "To start a band", correct: false},
+            {text: "To steal one billion dollars", correct: false},
+            {text: "To seek the Holy Grail", correct: true},
+            {text: "To rescue the DARPA Chief", correct: false},
         ]
     },
     {
@@ -24,22 +39,41 @@ const questionArray = [
     }
 ];
 
+var questionIndex = 0;
+
+
 // This function populates the page with values from
 // the currently selected question index.
 function showQuestion() {
+
     // Set the current question to question index value
-    questionIndex = 0;
+    // and push question text to question element
     currentQuestion = questionArray[questionIndex];
-    // Push question object text to question element
-    questionElement.innerText = questionArray[questionIndex].question;
-    // For each answer, create a button
-    // and push answer text to it.
+    questionElement.innerText = currentQuestion.question;
+
+    // For each answer, create a button,
+    // define class, and push answer text to it.
     currentQuestion.answers.forEach(answers => {
-        button = document.createElement("button");
-        button.classList.add("button");
+        const button = document.createElement("button");
+        if (answers.correct) {
+            button.classList = "correct"}
+        else {button.classList = "false"};
         answersElement.appendChild(button);
-        button.innerHTML = answers.text;
+        button.innerText = answers.text;
+        button.addEventListener("click", checkAnswer)
     })
+};
+
+
+
+function checkAnswer(button) {
+    const selectedButton = button.target;
+    if (selectedButton.classList.contains("correct")) {
+        console.log("Correct!")
+    } else {
+        console.log("Wrong!");
+    }
 }
 
 showQuestion();
+
