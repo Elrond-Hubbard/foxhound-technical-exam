@@ -12,7 +12,7 @@ const startButton = document.getElementById("begin");
 
 // Global variables
 var questionIndex = 0;
-var score = 0;
+var points = 0;
 var timeRemaining = 6000;
 
 // Audio properties
@@ -36,7 +36,7 @@ function startQuiz() {
 function showQuestion() {
 
     // Display scorecard
-    scoreElement.innerText = `SCORE: ${score}`;
+    scoreElement.innerText = `POINTS: ${points}`;
 
     // Reset quiz containers to prevent stacking
     answersElement.innerHTML = "";
@@ -69,10 +69,10 @@ function checkAnswer(button) {
 
     // Points are awarded for correct answers.
     if (selectedButton.classList.contains("correct")) {
-        score += 100;
+        points += 100;
         scoreElement.style.color = "#F8A145";
         timerElement.style.color = "#F07900";
-    // Time is deducted for incorrect answers
+        // Time is deducted for incorrect answers
     } else if (selectedButton.classList.contains("false")) {
         timeRemaining -= 1000;
         sfxAlert.play();
@@ -93,17 +93,32 @@ function countdown() {
         timerElement.innerText = `TIME: ${(timeRemaining / 100).toFixed(2)}`;
         if (timeRemaining < 0 || questionIndex >= questionArray.length) {
             gameOver();
+            clearInterval(timer);
         }
     }, 10);
 }
 
 
-// The game over screen prompts the user for initials and displays
-// recent scores.
+// The game over screen adds time remaining to current score,
+// prompts the user for initials, and displays recent scores.
 function gameOver() {
-    clearInterval(timer);
+    finalScore = (points + timeRemaining);
+    if (finalScore >= 6000) {
+    var codeName = "BIG-BOSS";
+    }
+    else if (finalScore >= 3000) {
+        codeName = "FOXHOUND";
+    }
+    else if (finalScore >= 1000) {
+        codeName = "FOX";
+    }
+    else if (finalScore >= 500) {
+        codeName = "HOUND";
+    }
     questionElement.innerText = "GAME OVER";
-    answersElement.innerHTML = `<h2>submit your score</h2>`;
+    answersElement.innerHTML = `<h2>codename: ${codeName}</h2>
+                                <h2>time remaining: ${timeRemaining}</h2>
+                                <h2>final score: ${finalScore}</h2>`;
     timerElement.innerText = "TIME OUT!";
 }
 

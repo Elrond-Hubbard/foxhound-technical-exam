@@ -9,10 +9,6 @@
     font-family: "MGS";
     src: url(../mgsFont.ttf);
 }
-@font-face {
-    font-family: "MGS2";
-    src: url(../mgs2Font.TTF);
-}
 
 
 body {
