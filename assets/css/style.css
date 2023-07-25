@@ -68,6 +68,23 @@ button:hover {
     color: #151515;
 }
 
+input {
+    width: 25%;
+    height: 35px;
+    margin: 1%;
+    border: 2px solid #F07900;
+    background-color: #F07900;
+    color:#151515;
+    font-family: "MGS";
+    font-size: 50px;
+    padding: 1%;
+}
+
+#submit {
+    width: 25%;
+    height: 70px;
+}
+
 @media (max-width: 1420px) {
     body {
         margin: 2% 5%;

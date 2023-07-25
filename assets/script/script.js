@@ -100,7 +100,7 @@ function countdown() {
 
 
 // The game over screen adds time remaining to current score,
-// prompts the user for initials, and displays recent scores.
+// prompts the user for name, and displays recent scores.
 function gameOver() {
     finalScore = (points + timeRemaining);
     if (finalScore >= 6000) {
@@ -118,7 +118,10 @@ function gameOver() {
     questionElement.innerText = "GAME OVER";
     answersElement.innerHTML = `<h2>codename: ${codeName}</h2>
                                 <h2>time remaining: ${timeRemaining}</h2>
-                                <h2>final score: ${finalScore}</h2>`;
+                                <h2>final score: ${finalScore}</h2>
+                                <h2>Enter Name:</h2>
+                                <input type="text">
+                                <button id="submit">Submit</button>`;
     timerElement.innerText = "TIME OUT!";
 }
 
