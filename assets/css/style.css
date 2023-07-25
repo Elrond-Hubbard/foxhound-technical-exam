@@ -63,4 +63,11 @@ button:hover {
     body {
         margin: 2% 5%;
     }
+    h2 {
+        font-size: 35px;
+    }
+    button {
+        width: 350px;
+        font-size: 20px;
+    }
 }
