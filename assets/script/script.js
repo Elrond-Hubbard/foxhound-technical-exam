@@ -12,7 +12,7 @@ startButton = document.getElementById("begin");
 startButton.addEventListener("click", startQuiz);
 var questionIndex = 0;
 var score = 0;
-var timeRemaining = 121;
+var timeRemaining = 30;
 
 // Each object contains a question and four answers with true/false property
 const questionArray = [
@@ -51,6 +51,12 @@ function countdown() {
     var timer = setInterval(function() {
         timeRemaining--;
         timerElement.innerText = `TIME: ${timeRemaining}`;
+        if (timeRemaining < 0) {
+            gameOver();
+            clearInterval(timeRemaining);
+            timerElement.innerText = "TIME: 0"
+        }
+        else {}
     }, 1000);
 }
 
@@ -59,6 +65,11 @@ function countdown() {
 function startQuiz() {
     countdown();
     showQuestion();
+}
+
+function gameOver() {
+    questionElement.innerText = "GAME OVER"
+    answersElement.innerHTML = `<h2>submit your score</h2>`;
 }
 
 
