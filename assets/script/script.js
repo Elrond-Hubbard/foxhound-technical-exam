@@ -62,10 +62,13 @@ function checkAnswer(button) {
     // Points are awarded for correct answers.
     if (selectedButton.classList.contains("correct")) {
         score += 100;
-
+        scoreElement.style.color = "#F8A145";
+        timerElement.style.color = "#F07900";
     // Time is deducted for incorrect answers
     } else if (selectedButton.classList.contains("false")) {
         timeRemaining -= 1000;
+        scoreElement.style.color = "#F07900";
+        timerElement.style.color = "#D20100";
     }
 
     // Regardless of answer, the next question is shown.
