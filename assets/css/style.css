@@ -83,6 +83,7 @@ input {
 #submit {
     width: 25%;
     height: 70px;
+    font-size: 50;
 }
 
 @media (max-width: 1420px) {

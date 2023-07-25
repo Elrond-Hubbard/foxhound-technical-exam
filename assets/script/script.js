@@ -14,6 +14,7 @@ const startButton = document.getElementById("begin");
 var questionIndex = 0;
 var points = 0;
 var timeRemaining = 6000;
+var scoreboard = [];
 
 // Audio properties
 const bgmEncounter = new Audio("./assets/audio/bgmEncounter.wav");
@@ -99,12 +100,14 @@ function countdown() {
 }
 
 
-// The game over screen adds time remaining to current score,
-// prompts the user for name, and displays recent scores.
+// The game over screen calculates final score,
+// grants the player a rank, and displays a scorecard
+// submission form.
 function gameOver() {
     finalScore = (points + timeRemaining);
+
     if (finalScore >= 6000) {
-    var codeName = "BIG-BOSS";
+        codeName = "BIG-BOSS";
     }
     else if (finalScore >= 3000) {
         codeName = "FOXHOUND";
@@ -115,17 +118,35 @@ function gameOver() {
     else if (finalScore >= 500) {
         codeName = "HOUND";
     }
+    else {codeName = "FLYING SQUIRREL"}
+
     questionElement.innerText = "GAME OVER";
     answersElement.innerHTML = `<h2>codename: ${codeName}</h2>
                                 <h2>time remaining: ${timeRemaining}</h2>
                                 <h2>final score: ${finalScore}</h2>
                                 <h2>Enter Name:</h2>
-                                <input type="text">
-                                <button id="submit">Submit</button>`;
+                                <input type="text" id="playerNameInput">
+                                <button id="submit">submit</button>`;
     timerElement.innerText = "TIME OUT!";
+    document.getElementById("submit").addEventListener("click", updateScoreboard);
 }
 
 
+
+function updateScoreboard() {
+    const playerName = document.getElementById("playerNameInput").value;
+
+    // An object is pushed to the scoreboard with player values.
+    scoreboard.push({code: codeName, pName: playerName, score: finalScore});
+    
+    // A scorecard is displayed for each player submission.
+    scoreboard.forEach((entry, index) => {
+        let scoreCardElement = document.createElement("h2");
+        scoreCardElement.innerHTML = `<h2>${codeName} ${playerName} ${finalScore}</h2>`;
+        answersElement.appendChild(scoreCardElement);
+    })
+}
+// `<h2>${codeName} ${playerName} ${finalScore}</h2>`
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 ///// QUESTION BANK /////
