@@ -3,17 +3,22 @@
 ///// QUIZ GAME /////
 
 
-// Global variable assignments
+// HTML element assignments
 const questionElement = document.getElementById("question");
 const answersElement = document.getElementById("answers");
 const scoreElement = document.getElementById("score");
 const timerElement = document.getElementById("timer")
 const startButton = document.getElementById("begin");
+
+// Global variables
 var questionIndex = 0;
 var score = 0;
 var timeRemaining = 6000;
+
+// Audio properties
 const bgmEncounter = new Audio("./assets/audio/bgmEncounter.wav");
 const sfxAlert = new Audio("./assets/audio/incorrect.wav")
+bgmEncounter.volume = 0.5;
 
 
 // When "Begin" is clicked, a countdown is initialized
