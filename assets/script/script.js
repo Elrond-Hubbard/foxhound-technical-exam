@@ -9,9 +9,10 @@ const answersElement = document.getElementById("answers");
 const scoreElement = document.getElementById("score");
 const timerElement = document.getElementById("timer")
 startButton = document.getElementById("begin");
+startButton.addEventListener("click", startQuiz);
 var questionIndex = 0;
 var score = 0;
-var timeRemaining = 120;
+var timeRemaining = 121;
 
 // Each object contains a question and four answers with true/false property
 const questionArray = [
@@ -44,8 +45,21 @@ const questionArray = [
     }
 ];
 
+    
+// Timer
+function countdown() {
+    var timer = setInterval(function() {
+        timeRemaining--;
+        timerElement.innerText = `TIME: ${timeRemaining}`;
+    }, 1000);
+}
 
-startButton.addEventListener("click", showQuestion);
+
+// start quiz
+function startQuiz() {
+    countdown();
+    showQuestion();
+}
 
 
 // This function populates the page with values from
@@ -53,7 +67,6 @@ startButton.addEventListener("click", showQuestion);
 function showQuestion() {
 
     // Display timer and scorecard
-    timerElement.innerText = `TIME: ${timeRemaining}`;
     scoreElement.innerText = `SCORE: ${score}`;
 
     // Reset quiz containers to prevent stacking
@@ -93,5 +106,3 @@ function checkAnswer(button) {
     }
     showQuestion()
 }
-
-// Timer
