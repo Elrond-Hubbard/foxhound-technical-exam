@@ -5,8 +5,18 @@
 }
 
 
+@font-face {
+    font-family: "MGS";
+    src: url(../mgsFont.ttf);
+}
+@font-face {
+    font-family: "MGS2";
+    src: url(../mgs2Font.TTF);
+}
+
+
 body {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: "MGS";
     margin: 2% 30%;
     background-color: #151515;
     color: #F07900;
@@ -27,11 +37,12 @@ header h1 {
     width: 100%;
     text-align: center;
     margin-bottom: 3%;
-    font-size: 50px;
+    font-size: 100px;
 }
 
 h2 {
-    font-size:50px;
+    font-size:75px;
+    font-family: "MGS";
 }
 
 section {
@@ -41,7 +52,8 @@ section {
 
 #question {
     padding-bottom: 5%;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: "MGS";
+    font-size: 75px;
 }
 
 button {
@@ -51,8 +63,8 @@ button {
     color:#F07900;
     background-color: #151515;
     border-color: #F07900;
-    font-size: 25px;
-    font-family: 'Courier New', Courier, monospace;
+    font-size: 35px;
+    font-family: "MGS";
 }
 
 button:hover {
@@ -64,8 +76,11 @@ button:hover {
     body {
         margin: 2% 5%;
     }
-    h2 {
-        font-size: 35px;
+    header h1 {
+        font-size: 60px;
+    }
+    h2, #question {
+        font-size: 50px;
     }
     button {
         width: 350px;

@@ -138,7 +138,7 @@ const questionArray = [
             { text: "None of the above", correct: false },
         ]
     }, {
-        question: "What does the interpreter with empty statements?",
+        question: "What does the interpreter do with empty statements?",
         answers: [
             { text: "Throws an error", correct: false },
             { text: "Ignores the statements", correct: true },
