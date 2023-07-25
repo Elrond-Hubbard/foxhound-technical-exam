@@ -6,9 +6,10 @@
 
 
 body {
-    /* border:solid; */
-    font-family:system-ui;
-    margin: 2% 15%
+    font-family: 'Courier New', Courier, monospace;
+    margin: 2% 30%;
+    background-color: #151515;
+    color: #F07900;
 }
 
 header {
@@ -37,8 +38,29 @@ section {
     flex-direction:column;
 }
 
+#question {
+    padding-bottom: 5%;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
 button {
     margin: 1%;
     width: 400px;
     height: 85px;
+    color:#F07900;
+    background-color: #151515;
+    border-color: #F07900;
+    font-size: 25px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+button:hover {
+    background-color: #F8A145;
+    color: #151515;
+}
+
+@media (max-width: 1420px) {
+    body {
+        margin: 2% 5%;
+    }
 }
