@@ -134,11 +134,14 @@ function gameOver() {
 
 
 function updateScoreboard() {
-    const playerName = document.getElementById("playerNameInput").value;
-
-    // An object is pushed to the scoreboard with player values.
-    scoreboard.push({code: codeName, pName: playerName, score: finalScore});
+    playerName = document.getElementById("playerNameInput").value;
+    playerValues = {code: codeName, pName: playerName, score: finalScore};
+    // Player info is pushed to scoreboard and stored locally.
+    localStorage.getItem("scoreboard", JSON.stringify(scoreboard));
+    scoreboard.push(playerValues);
+    localStorage.setItem("scoreboard", JSON.stringify(scoreboard));
     
+
     // A scorecard is displayed for each player submission.
     scoreboard.forEach((entry, index) => {
         let scoreCardElement = document.createElement("h2");
@@ -146,7 +149,7 @@ function updateScoreboard() {
         answersElement.appendChild(scoreCardElement);
     })
 }
-// `<h2>${codeName} ${playerName} ${finalScore}</h2>`
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 ///// QUESTION BANK /////
