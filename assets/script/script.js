@@ -92,7 +92,7 @@ function countdown() {
     var timer = setInterval(function () {
         timeRemaining--;
         timerElement.innerText = `TIME: ${(timeRemaining / 100).toFixed(2)}`;
-        if (timeRemaining < 0 || questionIndex >= questionArray.length) {
+        if (timeRemaining < 1 || questionIndex >= questionArray.length) {
             gameOver();
             clearInterval(timer);
         }
