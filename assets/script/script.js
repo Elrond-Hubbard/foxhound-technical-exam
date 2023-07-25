@@ -12,6 +12,8 @@ const startButton = document.getElementById("begin");
 var questionIndex = 0;
 var score = 0;
 var timeRemaining = 6000;
+const bgmEncounter = new Audio("./assets/audio/bgmEncounter.wav");
+const sfxAlert = new Audio("./assets/audio/incorrect.wav")
 
 
 // When "Begin" is clicked, a countdown is initialized
@@ -20,6 +22,7 @@ startButton.addEventListener("click", startQuiz);
 function startQuiz() {
     countdown();
     showQuestion();
+    bgmEncounter.play()
 }
 
 
@@ -67,6 +70,7 @@ function checkAnswer(button) {
     // Time is deducted for incorrect answers
     } else if (selectedButton.classList.contains("false")) {
         timeRemaining -= 1000;
+        sfxAlert.play();
         scoreElement.style.color = "#F07900";
         timerElement.style.color = "#D20100";
     }
@@ -121,7 +125,7 @@ const questionArray = [
             { text: "None of the above", correct: false },
         ]
     }, {
-        question: "Which of the following methods is used to access HTML elements?",
+        question: "Which method is used to access HTML elements?",
         answers: [
             { text: "getElementById()", correct: false },
             { text: "getElementsByClassName()", correct: false },
@@ -129,7 +133,7 @@ const questionArray = [
             { text: "None of the above", correct: false },
         ]
     }, {
-        question: "What does the interpreter do upon encountering empty statements?",
+        question: "What does the interpreter with empty statements?",
         answers: [
             { text: "Throws an error", correct: false },
             { text: "Ignores the statements", correct: true },
@@ -145,7 +149,7 @@ const questionArray = [
             { text: "All of the above", correct: true },
         ]
     }, {
-        question: "How can a datatype be declared to be a constant type?",
+        question: "How can a datatype be declared to be a constant?",
         answers: [
             { text: "const", correct: true },
             { text: "var", correct: false },
