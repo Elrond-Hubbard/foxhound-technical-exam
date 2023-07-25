@@ -8,18 +8,13 @@ const questionElement = document.getElementById("question");
 const answersElement = document.getElementById("answers");
 const scoreElement = document.getElementById("score");
 const timerElement = document.getElementById("timer")
+startButton = document.getElementById("begin");
 var questionIndex = 0;
-var score = -100;
-var timeRemaining = 140;
+var score = 0;
+var timeRemaining = 120;
 
 // Each object contains a question and four answers with true/false property
 const questionArray = [
-    {
-        question: "Are you ready to begin the game?",
-        answers: [
-            {text: "Of course!", correct: true},
-        ]
-    },
     {
         question: "What is your name?",
         answers: [
@@ -50,18 +45,26 @@ const questionArray = [
 ];
 
 
+startButton.addEventListener("click", showQuestion);
+
+
 // This function populates the page with values from
 // the currently selected question index.
 function showQuestion() {
+
+    // Display timer and scorecard
     timerElement.innerText = `TIME: ${timeRemaining}`;
     scoreElement.innerText = `SCORE: ${score}`;
-    // Quiz containers reset to prevent stacking
+
+    // Reset quiz containers to prevent stacking
     answersElement.innerHTML = "";
     questionElement.innerText = "";
+
     // Set the current question to question index value
     // and push question text to question element
     currentQuestion = questionArray[questionIndex];
     questionElement.innerText = currentQuestion.question;
+
     // For each answer, create a button,
     // define class, and push answer text to it.
     currentQuestion.answers.forEach(answers => {
@@ -90,7 +93,5 @@ function checkAnswer(button) {
     }
     showQuestion()
 }
-
-showQuestion();
 
 // Timer
