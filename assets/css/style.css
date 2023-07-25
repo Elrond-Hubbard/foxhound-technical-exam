@@ -63,8 +63,8 @@ button {
     color:#F07900;
     background-color: #151515;
     border-color: #F07900;
-    font-size: 35px;
-    font-family: "MGS";
+    font-size: 25px;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 button:hover {
