@@ -9,10 +9,9 @@ const answersElement = document.getElementById("answers");
 const scoreElement = document.getElementById("score");
 const timerElement = document.getElementById("timer")
 const startButton = document.getElementById("begin");
-
 var questionIndex = 0;
 var score = 0;
-var timeRemaining = 60;
+var timeRemaining = 6000;
 
 
 // When "Begin" is clicked, a countdown is initialized
@@ -59,13 +58,16 @@ function showQuestion() {
 // answer.
 function checkAnswer(button) {
     const selectedButton = button.target;
+
     // Points are awarded for correct answers.
     if (selectedButton.classList.contains("correct")) {
         score += 100;
-        // Time is deducted for incorrect answers
+
+    // Time is deducted for incorrect answers
     } else if (selectedButton.classList.contains("false")) {
-        timeRemaining -= 10;
+        timeRemaining -= 1000;
     }
+
     // Regardless of answer, the next question is shown.
     questionIndex++;
     showQuestion();
@@ -76,11 +78,11 @@ function checkAnswer(button) {
 function countdown() {
     var timer = setInterval(function () {
         timeRemaining--;
-        timerElement.innerText = `TIME: ${timeRemaining}`;
+        timerElement.innerText = `TIME: ${(timeRemaining / 100).toFixed(2)}`;
         if (timeRemaining < 0 || questionIndex >= questionArray.length) {
             gameOver();
         }
-    }, 1000);
+    }, 10);
 }
 
 
