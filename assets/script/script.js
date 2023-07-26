@@ -36,7 +36,7 @@ function startQuiz() {
 // the currently selected question index.
 function showQuestion() {
 
-    // Display scorecard
+    // Display points
     scoreElement.innerText = `POINTS: ${points}`;
 
     // Reset quiz containers to prevent stacking
@@ -73,7 +73,7 @@ function checkAnswer(button) {
         points += 100;
         scoreElement.style.color = "#F8A145";
         timerElement.style.color = "#F07900";
-        // Time is deducted for incorrect answers
+    // Time is deducted for incorrect answers
     } else if (selectedButton.classList.contains("false")) {
         timeRemaining -= 1000;
         sfxAlert.play();
@@ -126,7 +126,7 @@ function gameOver() {
                                 <h2>final score: ${finalScore}</h2>
                                 <h2>Enter Name:</h2>
                                 <input type="text" id="playerNameInput">
-                                <button id="submit">submit</button>`;
+                                <button id="submit">Print Dogtag</button>`;
     timerElement.innerText = "TIME OUT!";
     document.getElementById("submit").addEventListener("click", updateScoreboard);
 }
@@ -137,15 +137,13 @@ function updateScoreboard() {
     playerName = document.getElementById("playerNameInput").value;
     playerValues = {code: codeName, pName: playerName, score: finalScore};
     // Player info is pushed to scoreboard and stored locally.
-    localStorage.getItem("scoreboard", JSON.stringify(scoreboard));
-    scoreboard.push(playerValues);
-    localStorage.setItem("scoreboard", JSON.stringify(scoreboard));
     
+    scoreboard.push(playerValues);
 
     // A scorecard is displayed for each player submission.
     scoreboard.forEach((entry, index) => {
         let scoreCardElement = document.createElement("h2");
-        scoreCardElement.innerHTML = `<h2>${codeName} ${playerName} ${finalScore}</h2>`;
+        scoreCardElement.innerHTML = `<h2 id="dogtag">${codeName} ${playerName} ${finalScore}</h2>`;
         answersElement.appendChild(scoreCardElement);
     })
 }
