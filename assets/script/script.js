@@ -14,7 +14,7 @@ const startButton = document.getElementById("begin");
 var questionIndex = 0;
 var points = 0;
 var timeRemaining = 6000;
-var scoreboard = [];
+
 
 // Audio properties
 const bgmEncounter = new Audio("./assets/audio/bgmEncounter.wav");
@@ -144,7 +144,7 @@ function updateScoreboard() {
     })
 }
 
-scoreboard = [
+var scoreboard = [
     {code: "Liquid", pName: "Snake", score: "1998"},
     {code: "Revolver", pName: "Ocelot", score: "1998"},
     {code: "Decoy", pName: "Octopus", score: "1998"},
