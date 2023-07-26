@@ -19,4 +19,5 @@ add your name to the scoreboard.
 ## Credits
 
 Music and SFX sourced from Metal Gear Solid (Konami, 1998)  
-Font sourced from [dafont.com](https://www.dafont.com/000webfont.font)  
+Font sourced from [dafont.com](https://www.dafont.com/000webfont.font)
+Object Array structure pulled from [GreatStack](https://youtu.be/PBcqGxrr9g8)
