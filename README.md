@@ -1,4 +1,4 @@
-# quiz-app
+# FOXHOUND Technical Exam
 
 [This technical exam](https://elrond-hubbard.github.io/quiz-app/) prompts the user with questions and  
 multiple choice answers. 100 points are awarded for each correct question,  
