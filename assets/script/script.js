@@ -32,24 +32,22 @@ function startQuiz() {
 }
 
 
-// This function populates the page with values from
-// the currently selected question index.
+// The quiz is populated with variables from the question bank
 function showQuestion() {
 
-    // Display points
+    // Points are displayed 
     scoreElement.innerText = `POINTS: ${points}`;
 
-    // Reset quiz containers to prevent stacking
+    // Containers are reset to prevent stacking
     answersElement.innerHTML = "";
     questionElement.innerText = "";
 
-    // Set the current question to question index value
-    // and push question text to question element
+    // The current question is set 
     currentQuestion = questionArray[questionIndex];
     questionElement.innerText = currentQuestion.question;
 
-    // For each answer, create a button,
-    // define class, and push answer text to it.
+    // For each answer, a button element is created
+    // and assigned a "correct" or "false" class
     currentQuestion.answers.forEach(answers => {
         const button = document.createElement("button");
         if (answers.correct) {
@@ -101,9 +99,10 @@ function countdown() {
 
 
 // The game over screen calculates final score,
-// grants the player a rank, and displays a scorecard
+// grants the player a rank, and displays a name
 // submission form.
 function gameOver() {
+
     finalScore = (points + timeRemaining);
 
     if (finalScore >= 6000) {
@@ -119,7 +118,7 @@ function gameOver() {
         codeName = "HOUND";
     }
     else {codeName = "FLYING SQUIRREL"}
-
+    
     questionElement.innerText = "GAME OVER";
     answersElement.innerHTML = `<h2>codename: ${codeName}</h2>
                                 <h2>time remaining: ${timeRemaining}</h2>
@@ -128,25 +127,32 @@ function gameOver() {
                                 <input type="text" id="playerNameInput">
                                 <button id="submit">Print Dogtag</button>`;
     timerElement.innerText = "TIME OUT!";
-    document.getElementById("submit").addEventListener("click", updateScoreboard);
+    document.getElementById("submit").addEventListener("click", updateScoreboard, {once : true});
 }
 
 
-
+// Scores are submitted to an array and displayed on screen
 function updateScoreboard() {
     playerName = document.getElementById("playerNameInput").value;
     playerValues = {code: codeName, pName: playerName, score: finalScore};
-    // Player info is pushed to scoreboard and stored locally.
-    
-    scoreboard.push(playerValues);
+    scoreboard.unshift(playerValues);
 
-    // A scorecard is displayed for each player submission.
-    scoreboard.forEach((entry, index) => {
+    scoreboard.forEach((scoreboard) => {
         let scoreCardElement = document.createElement("h2");
-        scoreCardElement.innerHTML = `<h2 id="dogtag">${codeName} ${playerName} ${finalScore}</h2>`;
+        scoreCardElement.innerHTML = `<h2 id="dogtag">${scoreboard.code} ${scoreboard.pName} ${scoreboard.score}</h2>`;
         answersElement.appendChild(scoreCardElement);
     })
 }
+
+scoreboard = [
+    {code: "Liquid", pName: "Snake", score: "1998"},
+    {code: "Revolver", pName: "Ocelot", score: "1998"},
+    {code: "Decoy", pName: "Octopus", score: "1998"},
+    {code: "Vulcan", pName: "Raven", score: "1998"},
+    {code: "Sniper", pName: "Wolf", score: "1998"},
+    {code: "Psycho", pName: "Mantis", score: "1998"}
+]
+
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -209,29 +215,5 @@ const questionArray = [
             { text: "It will debug error in the current statement", correct: false },
             { text: "All of the above", correct: false },
         ]
-    }, {
-        question: "What is your name?",
-        answers: [
-            { text: "Doug", correct: false },
-            { text: "Sir Lancelot of Camelot", correct: true },
-            { text: "Jane", correct: false },
-            { text: "Snake", correct: false },
-        ]
-    }, {
-        question: "What is your quest?",
-        answers: [
-            { text: "To start a band", correct: false },
-            { text: "To steal one billion dollars", correct: false },
-            { text: "To seek the Holy Grail", correct: true },
-            { text: "To rescue the DARPA Chief", correct: false },
-        ]
-    }, {
-        question: "What is your favorite color?",
-        answers: [
-            { text: "Blue", correct: true },
-            { text: "Yellow", correct: false },
-            { text: "Red", correct: false },
-            { text: "Green", correct: false },
-        ]
-    },
+    }
 ];
