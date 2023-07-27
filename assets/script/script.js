@@ -97,12 +97,18 @@ function countdown() {
     }, 10);
 }
 
+function lockTime() {
+    if (timeRemaining < 0) {
+        timeRemaining = 0;
+    }
+}
 
 // The game over screen calculates final score,
 // grants the player a rank, and displays a name
 // submission form.
 function gameOver() {
 
+    lockTime();
     finalScore = (points + timeRemaining);
 
     if (finalScore >= 6000) {
