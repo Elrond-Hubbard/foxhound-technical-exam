@@ -112,17 +112,13 @@ function gameOver() {
     finalScore = (points + timeRemaining);
 
     if (finalScore >= 6000) {
-        codeName = "BIG-BOSS";
-    }
+        codeName = "BIG-BOSS";}
     else if (finalScore >= 3000) {
-        codeName = "FOXHOUND";
-    }
+        codeName = "FOXHOUND";}
     else if (finalScore >= 1000) {
-        codeName = "FOX";
-    }
+        codeName = "FOX";}
     else if (finalScore >= 500) {
-        codeName = "HOUND";
-    }
+        codeName = "HOUND";}
     else {codeName = "FLYING SQUIRREL"}
     
     questionElement.innerText = "GAME OVER";
@@ -132,7 +128,7 @@ function gameOver() {
                                 <h2>Enter Name:</h2>
                                 <input type="text" id="playerNameInput">
                                 <button id="submit">Print Dogtag</button>`;
-    timerElement.innerText = "TIME OUT!";
+    timerElement.innerText =    "TIME OUT!";
     document.getElementById("submit").addEventListener("click", updateScoreboard, {once : true});
 }
 
