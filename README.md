@@ -1,6 +1,6 @@
 # FOXHOUND Technical Exam
 
-[This technical exam](https://elrond-hubbard.github.io/quiz-app/) prompts the user with questions and  
+[This technical exam](https://elrond-hubbard.github.io/foxhound-technical-exam/) prompts the user with questions and  
 multiple choice answers. 100 points are awarded for each correct question,  
 and bonus points are awarded for extra time remaining on the clock. Submit your name  
 to join the ranks of FOXHOUND!
