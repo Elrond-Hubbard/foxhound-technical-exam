@@ -13,7 +13,7 @@ const startButton = document.getElementById("begin");
 // Global variables
 var questionIndex = 0;
 var points = 0;
-var timeRemaining = 6000;
+var timeRemaining = 9000;
 
 
 // Audio properties
@@ -99,8 +99,7 @@ function countdown() {
 
 function lockTime() {
     if (timeRemaining < 0) {
-        timeRemaining = 0;
-    }
+        timeRemaining = 0; }
 }
 
 // The game over screen calculates final score,
@@ -162,60 +161,60 @@ var scoreboard = [
 
 const questionArray = [
     {
-        question: "Javascript is an ____ language.",
+        question: "This principle can be used to calculate the lift force on an airfoil:",
         answers: [
-            { text: "Object-Oriented", correct: true },
-            { text: "Object-Based", correct: false },
-            { text: "Procedural", correct: false },
-            { text: "None of the above", correct: false },
+            { text: "Leonardo's Principle", correct: false },
+            { text: "Kepler's Principle", correct: false },
+            { text: "Bernoulli's Principle", correct: true },
+            { text: "Feynman's Principle", correct: false },
         ]
     }, {
-        question: "Which of the following keywords defines a variable?",
+        question: "This term is used to describe an orbiting body's maximum altitude:",
         answers: [
-            { text: "var", correct: false },
-            { text: "let", correct: false },
-            { text: "Both A and B", correct: true },
-            { text: "None of the above", correct: false },
+            { text: "Perogee", correct: false },
+            { text: "Apogee", correct: true },
+            { text: "Perhihelion", correct: false },
+            { text: "Event Horizon", correct: false },
         ]
     }, {
-        question: "Which method is used to access HTML elements?",
+        question: "The DARPA Chief is being held here:",
         answers: [
-            { text: "getElementById()", correct: false },
-            { text: "getElementsByClassName()", correct: false },
-            { text: "Both A and B", correct: true },
-            { text: "None of the above", correct: false },
+            { text: "Disposal Facility", correct: false },
+            { text: "Second Floor Basement", correct: false },
+            { text: "Interrogation Cell", correct: true },
+            { text: "Comms Tower B", correct: false },
         ]
     }, {
-        question: "What does the interpreter do with empty statements?",
+        question: "This is the greatest handgun ever made:",
         answers: [
-            { text: "Throws an error", correct: false },
-            { text: "Ignores the statements", correct: true },
-            { text: "Gives a warning", correct: false },
-            { text: "None of the above", correct: false },
+            { text: "Kimber K6S", correct: false },
+            { text: "S&A Model 19", correct: false },
+            { text: "Ruger Blackhawk", correct: false },
+            { text: "Colt Single Action Army", correct: true },
         ]
     }, {
-        question: "Which method can be used to display data?",
+        question: "Snipers often take this drug to steady their hand:",
         answers: [
-            { text: "document.write()", correct: false },
-            { text: "console.log()", correct: false },
-            { text: "window.alert()", correct: false },
-            { text: "All of the above", correct: true },
+            { text: "Diazepam", correct: true },
+            { text: "Augmentin", correct: false },
+            { text: "Methylphenidate", correct: false },
+            { text: "Climara", correct: false },
         ]
     }, {
-        question: "How can a datatype be declared to be a constant?",
+        question: "This code name was assigned to the first United States nuclear weapons test:",
         answers: [
-            { text: "const", correct: true },
-            { text: "var", correct: false },
-            { text: "let", correct: false },
-            { text: "constant", correct: false },
+            { text: "Trinity", correct: true },
+            { text: "Mike", correct: false },
+            { text: "Fat Man", correct: false },
+            { text: "Tsar Bomba", correct: false },
         ]
     }, {
-        question: "What does the debugger statement do?",
+        question: "This missile launcher fires a radio-controlled, guided projectile:",
         answers: [
-            { text: "Debug all errors in the program at runtime", correct: false },
-            { text: "It acts as a breakpoint in the program", correct: true },
-            { text: "It will debug error in the current statement", correct: false },
-            { text: "All of the above", correct: false },
+            { text: "Stinger", correct: false },
+            { text: "Nikita", correct: true },
+            { text: "FAMAS", correct: false },
+            { text: "M61 Vulcan", correct: false },
         ]
     }
 ];
